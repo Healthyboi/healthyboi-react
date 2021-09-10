@@ -10,8 +10,8 @@ function App() {
         <Navbar />
       </header>
       <Switch>
-        <Route path={"/"} component={Homepage} />
-        <Route path={"/workouts"} component={WorkoutList} />
+        <Route path="/" exact component={Homepage} />
+        <Route path="/workouts" component={WorkoutList} />
       </Switch>
     </div>
   );
