@@ -9,7 +9,7 @@ const ExerciseForm = (props) => {
     watch,
     formState: { errors },
   } = useForm();
-  const handleClose = props.openCb;
+  const handleChange = props.openCb;
   const onSubmit = (data) => {
     console.log("form data: ", data);
     axios
@@ -20,7 +20,7 @@ const ExerciseForm = (props) => {
       .catch((err) =>
         console.log(`error in post function for exercise form: ${err}`)
       );
-    handleClose();
+    handleChange();
   };
   return (
     <div>

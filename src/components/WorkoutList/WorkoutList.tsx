@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./WorkoutList.css";
 import ItemList from "../ItemList";
+import Slide from "@material-ui/core/Slide";
 import IconButton from "@material-ui/core/IconButton";
 import ExerciseForm from "../ExerciseForm/ExerciseForm";
 import AddIcon from "@material-ui/icons/Add";
@@ -16,17 +17,26 @@ const WorkoutList = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const handleChange = () => {
+    setOpen((prev) => !prev);
+  };
   return (
     <div className="workout-list">
       <p>WORKOUT LIST PLACEHOLDER</p>
       <div>
-        <IconButton onClick={handleOpen}>
+        <IconButton onClick={handleChange}>
           <AddIcon />
         </IconButton>
-        <Modal open={open} onClose={handleClose} className="workout-modal">
+
+        <Slide direction="up" in={open} mountOnEnter unmountOnExit>
+          <div>
+            <ExerciseForm openCb={handleChange} />
+          </div>
+        </Slide>
+
+        {/* <Modal open={open} onClose={handleClose} className="workout-modal">
           <ExerciseForm openCb={handleClose} />
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );
