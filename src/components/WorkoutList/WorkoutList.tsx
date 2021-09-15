@@ -1,44 +1,55 @@
-import { useState } from "react";
-import "./WorkoutList.css";
-import ItemList from "../ItemList";
-import Slide from "@material-ui/core/Slide";
-import IconButton from "@material-ui/core/IconButton";
-import ExerciseForm from "../ExerciseForm/ExerciseForm";
-import AddIcon from "@material-ui/icons/Add";
-import Modal from "@material-ui/core/Modal";
+import { useState, createContext } from 'react';
+import axios from 'axios';
+import './WorkoutList.css';
+import ItemList from '../ItemList';
+import Slide from '@material-ui/core/Slide';
+import Zoom from '@material-ui/core/Zoom';
+import IconButton from '@material-ui/core/IconButton';
+import ExerciseForm from '../ExerciseForm/ExerciseForm';
+import AddIcon from '@material-ui/icons/Add';
+import Modal from '@material-ui/core/Modal';
+import useAPI from '../../hooks/apiHook';
+const getURL = 'http://localhost:7000/api';
+export const DataContext = createContext([]);
 const WorkoutList = () => {
-  console.log("workout list mounted");
+  console.log('workout list mounted');
+  const [value, setValue] = useState<any>([]);
   const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   const handleChange = () => {
     setOpen((prev) => !prev);
   };
+  const getData = async (url: string, callback) => {
+    useAPI(url, 1, callback);
+  };
+  getData(getURL, setValue);
+  console.log(`Value of state at mount tabone: ${value}`);
   return (
-    <div className="workout-list">
-      <p>WORKOUT LIST PLACEHOLDER</p>
-      <div>
+    <DataContext.Provider value={value}>
+      <div className="workout-list">
+        <p>WORKOUT LIST PLACEHOLDER</p>
+        {/* <div>
         <IconButton onClick={handleChange}>
           <AddIcon />
         </IconButton>
 
-        <Slide direction="up" in={open} mountOnEnter unmountOnExit>
+        <Zoom in={open} mountOnEnter unmountOnExit>
           <div>
             <ExerciseForm openCb={handleChange} />
           </div>
-        </Slide>
+        </Zoom>
 
-        {/* <Modal open={open} onClose={handleClose} className="workout-modal">
-          <ExerciseForm openCb={handleClose} />
-        </Modal> */}
+      </div> */}
+        <div>
+          <ItemList />
+        </div>
       </div>
-    </div>
+    </DataContext.Provider>
   );
 };
 export default WorkoutList;
+
+{
+  /* <Modal open={open} onClose={handleClose} className="workout-modal">
+  <ExerciseForm openCb={handleClose} />
+</Modal> */
+}

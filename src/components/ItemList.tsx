@@ -1,32 +1,15 @@
-// import React, { useState, useEffect } from "react";
-import ItemCard from "./ItemCard";
+import React, { useState, useEffect, useContext } from 'react';
+import { DataContext } from './WorkoutList/WorkoutList';
+import ItemCard from './ItemCard';
 const ItemList = () => {
-  const item = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ];
+  let dummyData: any = useContext(DataContext);
+
   const printWork = () => {
-    console.log("click is working in item-list");
+    console.log('click is working in item-list');
   };
   return (
     <div className="item-list" onClick={printWork}>
-      {item?.map((data) => {
+      {dummyData?.map((data) => {
         return <ItemCard data={data} />;
       })}
     </div>

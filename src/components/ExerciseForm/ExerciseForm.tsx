@@ -1,6 +1,6 @@
-import { useState } from "react";
-import axios from "axios";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from 'react';
+import axios from 'axios';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 const ExerciseForm = (props) => {
   const {
@@ -11,9 +11,9 @@ const ExerciseForm = (props) => {
   } = useForm();
   const handleChange = props.openCb;
   const onSubmit = (data) => {
-    console.log("form data: ", data);
+    console.log('form data: ', data);
     axios
-      .post("http://localhost:7000/api", data)
+      .post('http://localhost:7000/api', data)
       .then((res) => {
         console.log(`post achieved`);
       })
@@ -25,11 +25,11 @@ const ExerciseForm = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input defaultValue="Enter an Exercise" {...register("name")} />
+        <input defaultValue="Enter an Exercise" {...register('name')} />
         <br />
-        <input {...register("repRange", { required: true })} />
+        <input {...register('repRange', { required: true })} />
         <br />
-        <select {...register("bodyPart")}>
+        <select {...register('bodyPart')}>
           <option value="">Select...</option>
           <option value="legs">Legs</option>
           <option value="chest">Chest</option>
