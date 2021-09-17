@@ -1,5 +1,4 @@
-import { useState, createContext } from 'react';
-import axios from 'axios';
+import { useState, createContext, useEffect } from 'react';
 import './WorkoutList.css';
 import ItemList from '../ItemList';
 import Slide from '@material-ui/core/Slide';
@@ -10,35 +9,40 @@ import AddIcon from '@material-ui/icons/Add';
 import Modal from '@material-ui/core/Modal';
 import useAPI from '../../hooks/apiHook';
 const getURL = 'http://localhost:7000/api';
+const GetData = async (url: string, callback) => {
+  useAPI(url, 1, callback);
+};
 export const DataContext = createContext([]);
 const WorkoutList = () => {
   console.log('workout list mounted');
   const [value, setValue] = useState<any>([]);
+  const [data, setData] = useState<any>([]);
   const [open, setOpen] = useState(false);
   const handleChange = () => {
     setOpen((prev) => !prev);
+    setData(value);
   };
-  const getData = async (url: string, callback) => {
-    useAPI(url, 1, callback);
-  };
-  getData(getURL, setValue);
+  useEffect(() => {
+    GetData(getURL, setValue);
+    console.log('WorkoutList mounted at useEffect');
+  }, [data]);
+
   console.log(`Value of state at mount tabone: ${value}`);
   return (
     <DataContext.Provider value={value}>
       <div className="workout-list">
         <p>WORKOUT LIST PLACEHOLDER</p>
-        {/* <div>
-        <IconButton onClick={handleChange}>
-          <AddIcon />
-        </IconButton>
+        <div>
+          <IconButton onClick={handleChange}>
+            <AddIcon />
+          </IconButton>
 
-        <Zoom in={open} mountOnEnter unmountOnExit>
-          <div>
-            <ExerciseForm openCb={handleChange} />
-          </div>
-        </Zoom>
-
-      </div> */}
+          <Zoom in={open} mountOnEnter unmountOnExit>
+            <div>
+              <ExerciseForm openCb={handleChange} />
+            </div>
+          </Zoom>
+        </div>
         <div>
           <ItemList />
         </div>

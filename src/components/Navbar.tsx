@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/images/logo.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/images/logo.png';
 const NavBar = () => {
-  console.log("woo navbar is here");
+  console.log('woo navbar is here');
   return (
     <div className="navbar">
       <div className="nav-links">
