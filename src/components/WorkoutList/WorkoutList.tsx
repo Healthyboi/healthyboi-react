@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import './WorkoutList.css';
-import ItemList from '../ItemList';
+import ItemList from '../ItemList/ItemList';
 import Slide from '@material-ui/core/Slide';
 import Zoom from '@material-ui/core/Zoom';
 import IconButton from '@material-ui/core/IconButton';

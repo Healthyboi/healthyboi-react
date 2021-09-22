@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { DataContext } from './WorkoutList/WorkoutList';
-import ItemCard from './ItemCard';
+import { useContext } from 'react';
+import { DataContext } from '../WorkoutList/WorkoutList';
+import ItemCard from '../ItemCard/ItemCard';
 const ItemList = () => {
   let dummyData: any = useContext(DataContext);
 

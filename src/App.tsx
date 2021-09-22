@@ -1,10 +1,10 @@
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Homepage from "./components/HomePage";
-import WorkoutList from "./components/WorkoutList/WorkoutList";
-import Stopwatch from "./components/StopWatch/Stopwatch";
-import ExerciseForm from "./components/ExerciseForm/ExerciseForm";
-import { Route, Switch } from "react-router";
+import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Homepage from './components/HomePage/HomePage';
+import WorkoutList from './components/WorkoutList/WorkoutList';
+import Stopwatch from './components/StopWatch/Stopwatch';
+import ExerciseForm from './components/ExerciseForm/ExerciseForm';
+import { Route, Switch } from 'react-router';
 function App() {
   return (
     <div className="App">
