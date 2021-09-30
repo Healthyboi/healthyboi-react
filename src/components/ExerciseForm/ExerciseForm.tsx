@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import axios from 'axios';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 const ExerciseForm = (props) => {
   const {

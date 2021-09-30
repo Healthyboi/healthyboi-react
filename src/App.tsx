@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/HomePage/HomePage';
 import WorkoutList from './components/WorkoutList/WorkoutList';
-import Stopwatch from './components/StopWatch/Stopwatch';
+import Stopwatch from './components/StopWatch/Stopwatch/Stopwatch';
 import ExerciseForm from './components/ExerciseForm/ExerciseForm';
 import { Route, Switch } from 'react-router';
 function App() {

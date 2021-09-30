@@ -1,7 +1,8 @@
+import './ItemList.css';
 import { useContext } from 'react';
 import { DataContext } from '../WorkoutList/WorkoutList';
 import ItemCard from '../ItemCard/ItemCard';
-const ItemList = () => {
+const ItemList = (props) => {
   let dummyData: any = useContext(DataContext);
 
   const printWork = () => {
@@ -10,7 +11,7 @@ const ItemList = () => {
   return (
     <div className="item-list" onClick={printWork}>
       {dummyData?.map((data) => {
-        return <ItemCard data={data} />;
+        return <ItemCard data={data} dataCb={props.dataCb} />;
       })}
     </div>
   );

@@ -1,12 +1,10 @@
-import { useState, createContext, useEffect } from 'react';
 import './WorkoutList.css';
+import { useState, createContext, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
-import Slide from '@material-ui/core/Slide';
 import Zoom from '@material-ui/core/Zoom';
 import IconButton from '@material-ui/core/IconButton';
 import ExerciseForm from '../ExerciseForm/ExerciseForm';
 import AddIcon from '@material-ui/icons/Add';
-import Modal from '@material-ui/core/Modal';
 import useAPI from '../../hooks/apiHook';
 const getURL = 'http://localhost:7000/api';
 const GetData = async (url: string, callback) => {
@@ -44,16 +42,10 @@ const WorkoutList = () => {
           </Zoom>
         </div>
         <div>
-          <ItemList />
+          <ItemList dataCb={setData} />
         </div>
       </div>
     </DataContext.Provider>
   );
 };
 export default WorkoutList;
-
-{
-  /* <Modal open={open} onClose={handleClose} className="workout-modal">
-  <ExerciseForm openCb={handleClose} />
-</Modal> */
-}

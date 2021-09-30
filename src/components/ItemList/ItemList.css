@@ -1,0 +1,8 @@
+.item-list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .item-list .item-card{
+    width:30%;
+    margin: 5em 1em;
+  }

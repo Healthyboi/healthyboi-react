@@ -1,0 +1,31 @@
+.navbar{
+    max-height: 25vh;
+    grid-column: 1 / span 3;
+    gap: 0;
+    width:100%;
+    background-color: white;
+  }
+.navbar img{
+    width:13rem;
+    height:12.5rem;
+}
+.navbar{
+    width: 100%;
+    position:fixed;
+    margin:1em;
+    text-shadow: gray 1px 0 5px;
+    z-index: 9000;
+  }
+.nav-links{
+    display:flex; 
+    width:100%;
+    margin-top:.2em;
+    justify-content: space-evenly;
+    text-decoration: none;
+    color:black;
+    align-items: center;
+  }
+.nav-links a{
+    text-decoration: none;
+    color: #59e1c7;
+  }

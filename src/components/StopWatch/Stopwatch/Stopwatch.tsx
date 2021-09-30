@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import "./Stopwatch.css";
-import Timer from "./Timer";
-import ControlButtons from "./ControlButtons";
-import Button from "@material-ui/core/Button";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
+import { useEffect, useState } from 'react';
+import './Stopwatch.css';
+import Timer from '../Timer/Timer';
+import ControlButtons from '../ControlButtons/ControlButtons';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -49,7 +48,7 @@ function StopWatch() {
   };
 
   const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
 
@@ -61,7 +60,7 @@ function StopWatch() {
       <Timer time={time} />
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
-          Fuck you!
+          Alert!
         </Alert>
       </Snackbar>
       <ControlButtons
